@@ -1,0 +1,63 @@
+﻿@model Fisherman
+
+<h2>Вступ до риболовного клубу <i class="bi-water"></i></h2>
+
+@using (Html.BeginForm("JoinClub", "Home", FormMethod.Post))
+{
+    <div>
+        <div>
+            @Html.LabelFor(m => m.Lastname) <i class="bi-person"></i>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Lastname, new { placeholder = "Прізвище", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Lastname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+
+    <div>
+        <div>
+            @Html.LabelFor(m => m.Firstname) <i class="bi-person-badge"></i>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Firstname, new { placeholder = "Ім'я", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Firstname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+
+    <div>
+        <div>
+            @Html.LabelFor(m => m.Age) <i class="bi-calendar"></i>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Age, new { placeholder = "Вік", @class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+
+    <div>
+        <label>Улюблена риба <i class="bi-droplet"></i>:</label><br>
+        @Html.RadioButtonFor(m => m.TargetFish, "Карась") Карась <br>
+        @Html.RadioButtonFor(m => m.TargetFish, "Щука") Щука <br>
+        @Html.RadioButtonFor(m => m.TargetFish, "Короп") Короп <br>
+        @Html.ValidationMessageFor(m => m.TargetFish, "", new { @class = "text-danger" })
+    </div>
+    <br />
+
+    <div>
+        <label>Основна снасть <i class="bi-gear"></i>:</label><br />
+        @Html.DropDownListFor(m => m.GearType, new SelectList(new[] { "Спінінг", "Фідер", "Поплавкова вудка" }),"Натисни, щоб обрати", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.GearType, "", new { @class = "text-danger" })
+    </div>
+    <br />
+
+    <div>   
+        @Html.CheckBoxFor(m => m.HasBoat)
+        @Html.LabelFor(m => m.HasBoat) <i class="bi-tsunami"></i>
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-success">Відправити заявку <i class="bi-check2-circle"></i></button>
+}

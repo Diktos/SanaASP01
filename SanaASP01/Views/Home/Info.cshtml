@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Успіх";
+}
+
+<div class="card m-4 border-success">
+    <div class="card-header bg-success text-white">
+        <h2>Вітаємо в клубі, @Model.Firstname @Model.Lastname! <i class="bi-trophy"></i></h2>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Твоє досьє рибалки:</h4>
+        <ul class="list-group list-group-flush text-start">
+            <li class="list-group-item"><b>Вік:</b> @Model.Age років</li>
+            <li class="list-group-item"><b>Цільова риба:</b> @Model.TargetFish</li>
+            <li class="list-group-item"><b>Снасть:</b> @Model.GearType</li>
+            <li class="list-group-item"><b>Наявність човна:</b> @(Model.HasBoat ? "Є свій баркас" : "Ловить з берега")</li>
+        </ul>
+
+        <br />
+        <a href="/Home/Index" class="btn btn-outline-success">Повернутися на головну</a>
+    </div>
+</div>
