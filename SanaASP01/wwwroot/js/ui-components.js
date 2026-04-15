@@ -40,7 +40,7 @@ class UIInput extends UIComponent {
 }
 
 class UIPanel extends UIComponent {
-    constructor(id, cssClass, title, children = []) {
+    constructor(id, cssClass, title, children = []) { 
         super(id, cssClass);
         this.title = title;
         this.children = children;
